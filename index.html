@@ -7,12 +7,25 @@
 <meta name="description" content="A discreet, relationship-led advisory for Delhi NCR's finest addresses. We find the right property for a select few — Golf Course Road, DLF Magnolias, Camellias, Aralias and beyond." />
 <meta name="theme-color" content="#0B0B0C" />
 
+<!-- Favicons -->
+<link rel="icon" type="image/png" href="assets/img/favicon.png" />
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png" />
+
+<!-- Preload the hero image for a fast LCP -->
+<link rel="preload" as="image" href="assets/img/hero/home-hero-bg.webp" fetchpriority="high" />
+
+<!-- Social preview -->
+<meta property="og:title" content="Illuminati Estates — Private Luxury Realty, Delhi NCR" />
+<meta property="og:description" content="A discreet, relationship-led advisory for Delhi NCR's finest addresses. We find the right property for a select few." />
+<meta property="og:image" content="assets/img/hero/home-hero-bg.webp" />
+<meta property="og:type" content="website" />
+
 <!-- ============================================================
      PERFORMANCE NOTES
      - All CSS is inlined below: zero render-blocking requests.
      - No web fonts: an elegant system serif/sans stack loads instantly.
-     - No image files: cinematic visuals are pure CSS gradients.
-       Swap these for optimised .webp photos later if desired.
+     - Imagery: optimised .webp photos (hero preloaded; cards lazy-loaded).
+       CSS gradients remain as graceful fallbacks behind each image.
      - ~3kb of progressive-enhancement JS at the very end.
      ============================================================ -->
 
@@ -143,15 +156,22 @@
     padding-top:78px;position:relative;overflow:hidden;
   }
   .hero-bg{
-    position:absolute;inset:0;z-index:0;
-    background:
-      radial-gradient(120% 90% at 80% 0%,rgba(201,168,106,.10),transparent 55%),
-      radial-gradient(90% 80% at 12% 100%,rgba(201,168,106,.06),transparent 60%),
-      linear-gradient(180deg,#0d0d0f 0%,#0b0b0c 45%,#08080a 100%);
+    position:absolute;inset:0;z-index:0;overflow:hidden;background:#08080a;
   }
-  /* faint architectural line texture */
+  .hero-bg img{
+    position:absolute;inset:0;z-index:0;
+    width:100%;height:100%;object-fit:cover;object-position:center 30%;
+  }
+  /* darkening + gold-tinted overlay so the headline stays legible */
+  .hero-bg::before{
+    content:"";position:absolute;inset:0;z-index:1;
+    background:
+      radial-gradient(120% 90% at 80% 0%,rgba(201,168,106,.12),transparent 55%),
+      linear-gradient(180deg,rgba(8,8,10,.55) 0%,rgba(9,9,11,.7) 50%,rgba(8,8,10,.94) 100%);
+  }
+  /* faint architectural line texture over the photo */
   .hero-bg::after{
-    content:"";position:absolute;inset:0;opacity:.5;
+    content:"";position:absolute;inset:0;z-index:2;opacity:.22;
     background-image:linear-gradient(90deg,var(--line-soft) 1px,transparent 1px);
     background-size:min(20vw,160px) 100%;
     -webkit-mask-image:linear-gradient(90deg,transparent,#000 25%,#000 75%,transparent);
@@ -211,6 +231,7 @@
   }
   .prop-img .ph{position:absolute;inset:0;transition:transform .6s ease}
   .prop:hover .prop-img .ph{transform:scale(1.05)}
+  img.ph{width:100%;height:100%;object-fit:cover}
   /* distinct cinematic gradient per card */
   .ph-1{background:linear-gradient(135deg,#1d2430,#0d1016 70%),radial-gradient(circle at 70% 20%,rgba(201,168,106,.25),transparent 50%)}
   .ph-2{background:linear-gradient(135deg,#2a2118,#100b06 70%)}
@@ -381,7 +402,9 @@
 
 <!-- ===================== HERO ===================== -->
 <section class="hero" id="top">
-  <div class="hero-bg" aria-hidden="true"></div>
+  <div class="hero-bg" aria-hidden="true">
+    <img src="assets/img/hero/home-hero-bg.webp" alt="" width="1915" height="1436" fetchpriority="high" decoding="async" />
+  </div>
   <div class="wrap">
     <div class="hero-inner">
       <span class="eyebrow">Private Real Estate Advisory · Delhi NCR</span>
@@ -467,7 +490,7 @@
     <div class="grid-props">
       <!-- Property 1 -->
       <article class="prop reveal">
-        <div class="prop-img"><div class="ph ph-1"></div><span class="prop-tag">Branded · DLF</span></div>
+        <div class="prop-img"><img class="ph ph-1" src="uploads/properties/dlf-the-camellias/dlf-the-camellias-001.webp" alt="DLF The Camellias, Golf Course Road, Gurugram" loading="lazy" decoding="async" /><span class="prop-tag">Branded · DLF</span></div>
         <div class="prop-body">
           <span class="prop-loc">Golf Course Road, Gurugram</span>
           <h3>The Camellias</h3>
@@ -480,7 +503,7 @@
 
       <!-- Property 2 -->
       <article class="prop reveal">
-        <div class="prop-img"><div class="ph ph-2"></div><span class="prop-tag">Branded · DLF</span></div>
+        <div class="prop-img"><img class="ph ph-2" src="uploads/properties/dlf-magnolias/dlf-magnolias-001.webp" alt="DLF The Magnolias, Golf Course Road, Gurugram" loading="lazy" decoding="async" /><span class="prop-tag">Branded · DLF</span></div>
         <div class="prop-body">
           <span class="prop-loc">Golf Course Road, Gurugram</span>
           <h3>The Magnolias</h3>
@@ -493,7 +516,7 @@
 
       <!-- Property 3 -->
       <article class="prop reveal">
-        <div class="prop-img"><div class="ph ph-3"></div><span class="prop-tag">Branded · DLF</span></div>
+        <div class="prop-img"><img class="ph ph-3" src="uploads/properties/dlf-aralias/dlf-aralias-001.webp" alt="DLF The Aralias, Golf Course Road, Gurugram" loading="lazy" decoding="async" /><span class="prop-tag">Branded · DLF</span></div>
         <div class="prop-body">
           <span class="prop-loc">Golf Course Road, Gurugram</span>
           <h3>The Aralias</h3>
@@ -506,7 +529,7 @@
 
       <!-- Property 4 -->
       <article class="prop reveal">
-        <div class="prop-img"><div class="ph ph-4"></div><span class="prop-tag">Resale · Rare</span></div>
+        <div class="prop-img"><img class="ph ph-4" src="assets/img/real-estate/property-exterior-7.webp" alt="Ultra-luxury corner kothi, DLF Phase 1, Gurugram" loading="lazy" decoding="async" /><span class="prop-tag">Resale · Rare</span></div>
         <div class="prop-body">
           <span class="prop-loc">DLF Phase 1, Gurugram</span>
           <h3>Ultra-Luxury Corner Kothi</h3>
@@ -519,7 +542,7 @@
 
       <!-- Property 5 -->
       <article class="prop reveal">
-        <div class="prop-img"><div class="ph ph-5"></div><span class="prop-tag">Branded</span></div>
+        <div class="prop-img"><img class="ph ph-5" src="uploads/properties/the-west-park/the-west-park-001.webp" alt="The West Park residence, South Mumbai" loading="lazy" decoding="async" /><span class="prop-tag">Branded</span></div>
         <div class="prop-body">
           <span class="prop-loc">South Mumbai</span>
           <h3>The West Park</h3>
