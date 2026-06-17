@@ -87,6 +87,12 @@
   .center{text-align:center}
   .divider{width:46px;height:1px;background:var(--gold);margin:18px 0 26px}
   .center .divider{margin-left:auto;margin-right:auto}
+  /* ornamental break between sections */
+  .section-break{display:flex;align-items:center;justify-content:center;gap:20px;padding:clamp(14px,4vw,40px) 0}
+  .section-break::before,.section-break::after{content:"";height:1px;width:min(150px,24vw)}
+  .section-break::before{background:linear-gradient(90deg,transparent,var(--line))}
+  .section-break::after{background:linear-gradient(90deg,var(--line),transparent)}
+  .section-break i{width:7px;height:7px;border:1px solid var(--gold);transform:rotate(45deg);flex:none;display:block}
 
   /* ---------- Buttons ---------- */
   .btn{
@@ -227,7 +233,7 @@
   }
   .prop:hover{transform:translateY(-5px);border-color:var(--line);box-shadow:0 30px 60px -30px rgba(0,0,0,.8)}
   .prop-img{
-    aspect-ratio:4/3;position:relative;overflow:hidden;
+    display:block;aspect-ratio:4/3;position:relative;overflow:hidden;
   }
   .prop-img .ph{position:absolute;inset:0;transition:transform .6s ease}
   .prop:hover .prop-img .ph{transform:scale(1.05)}
@@ -252,6 +258,8 @@
   .prop-body{padding:24px 24px 28px;display:flex;flex-direction:column;gap:6px;flex:1}
   .prop-loc{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
   .prop h3{font-size:1.4rem}
+  .prop h3 a{transition:color .2s}
+  .prop:hover h3 a{color:var(--gold-bright)}
   .prop-price{margin-top:auto;padding-top:18px;display:flex;align-items:baseline;justify-content:space-between;gap:10px}
   .prop-price .amt{font-family:var(--serif);color:var(--gold-bright);font-size:1.35rem}
   .prop-price .amt span{font-size:.72rem;color:var(--muted);letter-spacing:.1em}
@@ -494,6 +502,8 @@
 </section>
 
 <!-- ===================== FEATURED PROPERTIES ===================== -->
+<div class="wrap"><div class="section-break" aria-hidden="true"><i></i></div></div>
+
 <section class="pad" id="properties">
   <div class="wrap">
     <div class="head reveal">
@@ -506,65 +516,65 @@
     <div class="grid-props">
       <!-- Property 1 -->
       <article class="prop reveal">
-        <div class="prop-img"><img class="ph ph-1" src="uploads/properties/dlf-the-camellias/dlf-the-camellias-001.webp" alt="DLF The Camellias, Golf Course Road, Gurugram" loading="lazy" decoding="async" /><span class="prop-tag">Branded · DLF</span></div>
+        <a class="prop-img" href="property/dlf-the-camellias/" aria-label="View The Camellias"><img class="ph ph-1" src="uploads/properties/dlf-the-camellias/dlf-the-camellias-001.webp" alt="DLF The Camellias, Golf Course Road, Gurugram" loading="lazy" decoding="async" /><span class="prop-tag">Branded · DLF</span></a>
         <div class="prop-body">
           <span class="prop-loc">Golf Course Road, Gurugram</span>
-          <h3>The Camellias</h3>
+          <h3><a href="property/dlf-the-camellias/">The Camellias</a></h3>
           <div class="prop-price">
             <span class="amt">₹70 Cr <span>onwards</span></span>
-            <a href="#bespoke">Enquire</a>
+            <a href="property/dlf-the-camellias/">View details</a>
           </div>
         </div>
       </article>
 
       <!-- Property 2 -->
       <article class="prop reveal">
-        <div class="prop-img"><img class="ph ph-2" src="uploads/properties/dlf-magnolias/dlf-magnolias-001.webp" alt="DLF The Magnolias, Golf Course Road, Gurugram" loading="lazy" decoding="async" /><span class="prop-tag">Branded · DLF</span></div>
+        <a class="prop-img" href="property/dlf-magnolias/" aria-label="View The Magnolias"><img class="ph ph-2" src="uploads/properties/dlf-magnolias/dlf-magnolias-001.webp" alt="DLF The Magnolias, Golf Course Road, Gurugram" loading="lazy" decoding="async" /><span class="prop-tag">Branded · DLF</span></a>
         <div class="prop-body">
           <span class="prop-loc">Golf Course Road, Gurugram</span>
-          <h3>The Magnolias</h3>
+          <h3><a href="property/dlf-magnolias/">The Magnolias</a></h3>
           <div class="prop-price">
             <span class="amt">₹45 Cr <span>onwards</span></span>
-            <a href="#bespoke">Enquire</a>
+            <a href="property/dlf-magnolias/">View details</a>
           </div>
         </div>
       </article>
 
       <!-- Property 3 -->
       <article class="prop reveal">
-        <div class="prop-img"><img class="ph ph-3" src="uploads/properties/dlf-aralias/dlf-aralias-001.webp" alt="DLF The Aralias, Golf Course Road, Gurugram" loading="lazy" decoding="async" /><span class="prop-tag">Branded · DLF</span></div>
+        <a class="prop-img" href="property/dlf-aralias/" aria-label="View The Aralias"><img class="ph ph-3" src="uploads/properties/dlf-aralias/dlf-aralias-001.webp" alt="DLF The Aralias, Golf Course Road, Gurugram" loading="lazy" decoding="async" /><span class="prop-tag">Branded · DLF</span></a>
         <div class="prop-body">
           <span class="prop-loc">Golf Course Road, Gurugram</span>
-          <h3>The Aralias</h3>
+          <h3><a href="property/dlf-aralias/">The Aralias</a></h3>
           <div class="prop-price">
             <span class="amt">₹38 Cr <span>onwards</span></span>
-            <a href="#bespoke">Enquire</a>
+            <a href="property/dlf-aralias/">View details</a>
           </div>
         </div>
       </article>
 
       <!-- Property 4 -->
       <article class="prop reveal">
-        <div class="prop-img"><img class="ph ph-4" src="assets/img/real-estate/property-exterior-7.webp" alt="Ultra-luxury corner kothi, DLF Phase 1, Gurugram" loading="lazy" decoding="async" /><span class="prop-tag">Resale · Rare</span></div>
+        <a class="prop-img" href="property/ultra-luxury-corner-kothi/" aria-label="View the Ultra-Luxury Corner Kothi"><img class="ph ph-4" src="assets/img/real-estate/property-exterior-7.webp" alt="Ultra-luxury corner kothi, DLF Phase 1, Gurugram" loading="lazy" decoding="async" /><span class="prop-tag">Resale · Rare</span></a>
         <div class="prop-body">
           <span class="prop-loc">DLF Phase 1, Gurugram</span>
-          <h3>Ultra-Luxury Corner Kothi</h3>
+          <h3><a href="property/ultra-luxury-corner-kothi/">Ultra-Luxury Corner Kothi</a></h3>
           <div class="prop-price">
             <span class="amt">₹20 Cr</span>
-            <a href="#bespoke">Enquire</a>
+            <a href="property/ultra-luxury-corner-kothi/">View details</a>
           </div>
         </div>
       </article>
 
       <!-- Property 5 -->
       <article class="prop reveal">
-        <div class="prop-img"><img class="ph ph-5" src="uploads/properties/the-west-park/the-west-park-001.webp" alt="The West Park residence, South Mumbai" loading="lazy" decoding="async" /><span class="prop-tag">Branded</span></div>
+        <a class="prop-img" href="property/the-west-park/" aria-label="View The West Park"><img class="ph ph-5" src="uploads/properties/the-west-park/the-west-park-001.webp" alt="The West Park residence, Andheri, Mumbai" loading="lazy" decoding="async" /><span class="prop-tag">Branded</span></a>
         <div class="prop-body">
-          <span class="prop-loc">South Mumbai</span>
-          <h3>The West Park</h3>
+          <span class="prop-loc">Andheri, Mumbai</span>
+          <h3><a href="property/the-west-park/">The West Park</a></h3>
           <div class="prop-price">
             <span class="amt">₹4.5 Cr <span>onwards</span></span>
-            <a href="#bespoke">Enquire</a>
+            <a href="property/the-west-park/">View details</a>
           </div>
         </div>
       </article>
@@ -583,6 +593,8 @@
 </section>
 
 <!-- ===================== BESPOKE / FIND MY PROPERTY ===================== -->
+<div class="wrap"><div class="section-break" aria-hidden="true"><i></i></div></div>
+
 <section class="bespoke pad" id="bespoke">
   <div class="wrap">
     <div class="bespoke-grid">
@@ -685,6 +697,8 @@
 </section>
 
 <!-- ===================== STATS ===================== -->
+<div class="wrap"><div class="section-break" aria-hidden="true"><i></i></div></div>
+
 <section class="pad" style="padding-top:0">
   <div class="wrap">
     <div class="stats">
@@ -697,6 +711,8 @@
 </section>
 
 <!-- ===================== CONTACT ===================== -->
+<div class="wrap"><div class="section-break" aria-hidden="true"><i></i></div></div>
+
 <section class="contact approach pad" id="contact">
   <div class="wrap">
     <div class="contact-grid">
